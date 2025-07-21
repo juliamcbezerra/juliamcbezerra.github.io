@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Turnover</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* COPIAR E COLAR TODO O SEU BLOCO <STYLE> DO INDEX.HTML AQUI */
+        /* Certifique-se de que os caminhos das variáveis de cor estão corretos se você usou :root */
+        :root {
+            --primary-color: #3b5249; /* Verde Musgo Escuro */
+            --secondary-color: #55828b; /* Verde Azulado Suave */
+            --dark-bg: #2d3a33; /* Fundo mais escuro */
+            --light-text: #e0e0e0; /* Texto claro */
+            --highlight-text: #a0a0a0; /* Texto de destaque */
+            --accent-color: #b1d4c2; /* Verde claro para detalhes/hover */
+            --card-bg: #4b645a; /* Fundo dos cartões */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+        .project-detail-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .project-detail-container h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        .project-detail-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--highlight-text);
+            padding-bottom: 5px;
+        }
+        .project-detail-container p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+        .project-detail-container ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .project-detail-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .project-detail-container .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .project-detail-container .links {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .project-detail-container .links a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: background-color 0.3s ease;
+        }
+        .project-detail-container .links a:hover {
+            background-color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        .project-detail-container .tags {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tag { /* Reaplicar o estilo da tag do index.html */
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        /* Responsividade para a página de detalhes do projeto */
+        @media (max-width: 768px) {
+            .project-detail-container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .project-detail-container h1 {
+                font-size: 2em;
+            }
+            .project-detail-container h2 {
+                font-size: 1.5em;
+            }
+            .project-detail-container p {
+                font-size: 1em;
+            }
+            .project-detail-container .links a {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="project-detail-container">
+        <h1>Análise de Turnover na TECHCO: Identificando Fatores de Permanência</h1>
+        
+        <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Classificação</span>
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Análise de Dados</span>
+            <span class="tag">Recursos Humanos</span>
+        </div>
+    
+        <h2>Visão Geral do Projeto</h2>
+        <p>
+            Este projeto tem como objetivo principal analisar os fatores que influenciam o turnover (rotatividade de funcionários) em uma empresa de tecnologia fictícia, a TECHCO. Utilizando um dataset simulado, a análise explora as características dos colaboradores e seu desempenho para identificar padrões que possam prever a saída de funcionários e, consequentemente, auxiliar na formulação de estratégias de retenção eficazes.
+        </p>
+        <p>
+            Apesar de o dataset apresentar um desbalanceamento significativo na variável alvo (com o turnover sendo um evento raro), o projeto demonstra o processo completo de um pipeline de Machine Learning, desde a extração e tratamento dos dados até a modelagem preditiva e a interpretação dos resultados, com foco nos desafios de dados reais.
+        </p>
+
+        <h2>1. Extração e Tratamento de Dados (ETL)</h2>
+        <p>
+            O projeto iniciou-se com o carregamento de um arquivo CSV contendo registros temporais de desempenho e características individuais de funcionários da TECHCO. Um passo crucial foi a remoção de registros duplicados por `emp_id` ao longo do tempo, garantindo que apenas o primeiro registro único de cada funcionário fosse considerado para a análise de turnover.
+        </p>
+        <p>
+            Foram criadas novas features para enriquecer o dataset:
+        </p>
+        <ul>
+            <li><b>`composite_score`</b>: Uma média simples entre `training_score`, `logical_score` e `verbal_score`, servindo como um indicador geral de performance cognitiva e técnica.</li>
+            <li><b>`turnover_flag`</b>: Codificação binária da variável `turnover` (0 para "Stayed" - permaneceu, e 1 para "Left" - saiu).</li>
+        </ul>
+
+        <h2>2. Pré-processamento e Normalização</h2>
+        <p>
+            Para preparar os dados para a modelagem, as variáveis numéricas selecionadas foram transformadas com `StandardScaler`. Este passo é essencial para padronizar as escalas das features e evitar que variáveis com valores maiores dominem o processo de aprendizado do modelo.
+        </p>
+        <p>
+            As features incluídas no processo de modelagem foram:
+            * Scores de treinamento, raciocínio lógico e verbal.
+            * Indicadores socioeconômicos (`avg_literacy`, `location_age`, `similar_language`).
+            * Dados de deslocamento (`distance`).
+            * Gênero (`is_male`).
+            * Score composto (`composite_score`).
+        </p>
+
+        <h2>3. Análise Exploratória Avançada</h2>
+        <h3>📊 Análise de Componentes Principais (PCA)</h3>
+        <p>
+            A Análise de Componentes Principais (PCA) foi utilizada para reduzir a dimensionalidade dos dados, mantendo a máxima variância. Embora não apresente um gráfico aqui, a análise revelou uma clara separação entre os funcionários que permaneceram e os que saíram. Este achado inicial sugeriu que fatores como pontuação de desempenho e características relacionadas à localização e contexto do funcionário poderiam influenciar significativamente a permanência.
+        </p>
+        <h3>🌐 Projeção via t-SNE</h3>
+        <p>
+            Para uma exploração mais aprofundada de agrupamentos em baixa dimensionalidade, aplicou-se a técnica não linear t-SNE (t-Distributed Stochastic Neighbor Embedding). Essa projeção reforçou que, apesar da raridade do turnover, alguns perfis de funcionários mostram uma maior propensão a deixar a empresa, indicando a existência de subgrupos que merecem atenção específica.
+        </p>
+
+        <h2>4. Modelagem Preditiva com Random Forest</h2>
+        <p>
+            Um modelo de classificação `Random Forest` foi treinado com 80% dos dados e testado com os 20% restantes. A escolha do Random Forest se deu pela sua robustez e capacidade de lidar com dados complexos.
+        </p>
+        <p>
+            <b>Resultados de Performance do Modelo:</b>
+            O modelo demonstrou uma acurácia geral de predição </b>extremamente alta (~99,5%)</b>. : 1] No entanto, é crucial notar que essa alta acurácia é um reflexo do forte desbalanceamento de classes no dataset, onde a vasta maioria dos funcionários pertencia à classe "Stayed" (permaneceram). : 1]
+        </p>
+        <div>
+            <img src="img/Captura de tela 2025-07-21 143054.png" alt="Classification Report e Confusion Matrix">
+        </div>
+        <p>
+            Como esperado em casos de classes muito desbalanceadas:
+        </p>
+        <ul>
+            <li><b>Classe "Stayed"</b>: O modelo alcançou precisão e recall perfeitos (1.00 para ambas), indicando sua excelência em identificar funcionários que permanecerão na empresa. : 1]</li>
+            <li><b>Classe "Left"</b>: O modelo não conseguiu prever corretamente nenhum exemplo de funcionários que saíram (`recall` de 0.00 para a classe '1'), o que é uma limitação direta do número extremamente baixo de ocorrências dessa classe (apenas 1 'support') nos dados originais. : 1] Este resultado enfatiza a necessidade de técnicas de balanceamento de classes (como SMOTE) em um cenário de dados reais para melhorar a detecção de eventos raros.</li>
+        </ul>
+
+        <h2>5. Importância das Variáveis</h2>
+        <p>
+            A análise da importância das variáveis é fundamental para entender quais fatores mais influenciam a decisão de turnover, independentemente da capacidade preditiva do modelo para a classe minoritária.
+        </p>
+        <img src="img/importancia-variaveis.png" alt="Gráfico de Importância das Variáveis">
+        <p><i>Gráfico 1: Importância das Variáveis no Modelo Random Forest para Previsão de Turnover.</i></p>
+        <p>
+            As variáveis mais relevantes para o modelo foram:
+        </p>
+        <ul>
+            <li><b>`avg_literacy`</b>: Alta importância, superando até mesmo o `composite_score`.</li>
+            <li><b>`composite_score`</b>: Alta importância.</li>
+            <li><b>`training_score`</b>: Alta importância, reforçando a relevância do desempenho em treinamentos.</li>
+            <li><b>`distance`</b>: Média importância.</li>
+            <li><b>`similar_language`</b>: Média importância, sugerindo que a afinidade linguística com a localidade pode influenciar a permanência.</li>
+            <li><b>`location_age`</b>: Baixa importância.</li>
+            <li><b>`verbal_score`</b>: Baixa importância.</li>
+            <li><b>`logical_score`</b>: Baixa importância.</li>
+            <li><b>`is_male`</b>: Praticamente sem importância no modelo.</li>
+        </ul>
+        <p>
+            <b>Insight Chave:</b> A <b>literacia média (avg_literacy)</b>, a performance técnica/cognitiva geral (composite_score e training_score), e fatores como <b>distância de deslocamento</b> e <b>afinidade linguística</b> com a localidade parecem ser os principais fatores associados à permanência dos colaboradores na TECHCO.
+        </p>
+
+        <h2>Principais Insights e Recomendações 💡</h2>
+        <ul>
+            <li><b>Raridade do Turnover:</b> A natureza extremamente rara do turnover nos dados analisados impôs um desafio significativo à modelagem preditiva tradicional. Em cenários reais, isso exigiria a aplicação de técnicas avançadas de balanceamento de classes (como SMOTE, ADASYN) para melhorar a detecção de eventos minoritários.</li>
+            <li><b>Performance e Retenção:</b> A alta correlação entre a performance técnica/cognitiva (medida pelos scores) e a permanência dos funcionários sugere que <b>programas de capacitação contínua e desenvolvimento de habilidades</b> podem influenciar positivamente a retenção de talentos. Investir no aprimoramento técnico dos colaboradores pode ser uma estratégia eficaz para reduzir o turnover.</li>
+            <li><b>Fatores Geográficos e Culturais:</b> A relação entre distância de deslocamento e afinidade cultural (idioma) com a saída de funcionários indica a importância de considerar o bem-estar e a adaptação cultural dos colaboradores no ambiente de trabalho. A empresa pode explorar soluções como <b>modelos de trabalho flexíveis</b> ou <b>iniciativas de integração cultural</b> para mitigar esses riscos.</li>
+            <li><b>Equidade de Gênero:</b> O fato de o gênero não ter tido um impacto significativo na decisão de turnover, segundo o modelo treinado, é um ponto positivo sob a perspectiva de equidade dentro da TECHCO.</li>
+        </ul>
+
+    <a href="../../index.html" class="back-button">&larr; Voltar para o Portfólio</a>
+
+</body>
+</html>

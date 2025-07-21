@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panorama Econômico - Fundo Monetário Internacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* COPIAR E COLAR TODO O SEU BLOCO <STYLE> DO INDEX.HTML AQUI */
+        /* Certifique-se de que os caminhos das variáveis de cor estão corretos se você usou :root */
+        :root {
+            --primary-color: #3b5249; /* Verde Musgo Escuro */
+            --secondary-color: #55828b; /* Verde Azulado Suave */
+            --dark-bg: #2d3a33; /* Fundo mais escuro */
+            --light-text: #e0e0e0; /* Texto claro */
+            --highlight-text: #a0a0a0; /* Texto de destaque */
+            --accent-color: #b1d4c2; /* Verde claro para detalhes/hover */
+            --card-bg: #4b645a; /* Fundo dos cartões */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+        .project-detail-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .project-detail-container h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        .project-detail-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--highlight-text);
+            padding-bottom: 5px;
+        }
+        .project-detail-container p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+        .project-detail-container ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .project-detail-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .project-detail-container .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .project-detail-container .links {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .project-detail-container .links a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: background-color 0.3s ease;
+        }
+        .project-detail-container .links a:hover {
+            background-color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        .project-detail-container .tags {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tag { /* Reaplicar o estilo da tag do index.html */
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        /* Responsividade para a página de detalhes do projeto */
+        @media (max-width: 768px) {
+            .project-detail-container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .project-detail-container h1 {
+                font-size: 2em;
+            }
+            .project-detail-container h2 {
+                font-size: 1.5em;
+            }
+            .project-detail-container p {
+                font-size: 1em;
+            }
+            .project-detail-container .links a {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="project-detail-container">
+        <h1>Panorama Econômico - Uma análise a partir do Fundo Monetário Internacional</h1>
+        
+        <div class="tags">
+            <span class="tag">Análise de Dados</span>
+            <span class="tag">Business Intelligence</span>
+            <span class="tag">Séries Temporais</span>
+            <span class="tag">Python</span>
+            <span class="tag">FMI</span>
+        </div>
+
+        <h2>Visão Geral do Projeto</h2>
+        <p>
+            Este projeto apresenta uma análise de dados macroeconômicos retirados de publicações do Fundo Monetário Internacional (FMI) World Economic Outlook (WEO) de abril de 2024 e abril de 2025. O objetivo principal foi explorar tendências históricas, estimativas e projeções para indicadores chave como Crescimento do PIB, Inflação e Taxa de Desemprego. A análise compara o desempenho entre grupos de países (Economias Avançadas vs. Emergentes e em Desenvolvimento) e as diferenças nas previsões entre as duas edições do WEO.
+        </p>
+        <h2>1. Crescimento do PIB (Produto Interno Bruto) 📈</h2>
+        <h3>Observações Gerais (2000-2029)</h3>
+        <ul>
+            <li>As Economias Emergentes e em Desenvolvimento consistentemente demonstram taxas de crescimento do PIB mais elevadas do que as Economias Avançadas ao longo do período analisado. Esta é uma tendência histórica que reflete o processo de convergência e industrialização de muitas dessas nações.</li>
+            <li>Ambos os grupos de países mostram uma desaceleração geral no crescimento nas estimativas recentes e nas projeções futuras (a partir de 2024), sugerindo um cenário econômico global mais contido ou uma maturação das economias emergentes.</li>
+        </ul>
+        <h3>Diferenças nas Previsões e Projeções (2024-2029)</h3>
+        <ul>
+            <li>A comparação entre as previsões e projeções do WEO de Abril de 2024 e Abril de 2025 revela pequenas revisões nas expectativas de crescimento.</li>
+            <li>Para as economias avançadas, a previsão/projeção de abril de 2025 (linha laranja pontilhada em um gráfico, se houvesse) parece indicar um crescimento ligeiramente mais baixo em alguns anos futuros do que a de abril de 2024 (linha azul contínua).</li>
+            <li>Para as economias emergentes, as previsões e projeções também mostram ajustes, mas a tendência de crescimento mais robusto permanece em ambas as edições. Isso indica que, embora haja ajustes finos nas previsões do FMI ao longo do tempo (refletindo novas informações econômicas entre as publicações), as tendências macroeconômicas de longo prazo para grupos de países tendem a ser consistentes.</li>
+        </ul>
+
+        <h2>2. Inflação (Variação Anual dos Preços ao Consumidor) 💸</h2>
+        <h3>Observações Gerais (2000-2029)</h3>
+        <ul>
+            <li>A inflação nas Economias Emergentes e em Desenvolvimento tende a ser mais volátil e, em média, mais alta do que nas Economias Avançadas. Isso pode ser atribuído a fatores como políticas monetárias menos estáveis, dependência de commodities ou choques externos.</li>
+            <li>Ambos os grupos mostram um aumento de inflação em anos recentes (pós-2020, ou seja, dados históricos/estimativas), refletindo as pressões inflacionárias globais observadas, seguidas por uma tendência de desinflação nas estimativas e projeções futuras.</li>
+        </ul>
+        <h3>Diferenças nas Previsões e Projeções (2024-2029)</h3>
+        <ul>
+            <li>Para a inflação, as previsões e projeções do WEO de Abril de 2025 (linhas pontilhadas) parecem indicar uma desinflação um pouco mais rápida ou um nível de inflação ligeiramente menor para os anos futuros em comparação com as de Abril de 2024 (linhas contínuas). Isso pode sugerir uma visão mais otimista ou uma resposta de política monetária mais eficaz esperada pelo FMI em suas publicações mais recentes.</li>
+        </ul>
+        <img src="img/inflação-emergentesedesenvo.png" alt="Inflação por Grupo de Países">
+        <p><i>Gráfico 2: Inflação (projeções WEO Abril 2024 vs. Abril 2025) para Economias Avançadas e Emergentes.</i></p>
+
+        <h2>3. Análise por País Selecionado 🌍</h2>
+        <h3>Crescimento do PIB: Brasil, China e Estados Unidos</h3>
+        <ul>
+            <li>A China consistentemente exibe o maior crescimento do PIB entre os países selecionados, refletindo sua trajetória de desenvolvimento robusta. No entanto, suas estimativas e projeções futuras indicam uma desaceleração, mas ainda acima dos outros países.</li>
+            <li>Os Estados Unidos mostram um crescimento mais estável e maduro, com flutuações nas estimativas e projeções.</li>
+            <li>O Brasil apresenta uma trajetória de crescimento mais volátil, com períodos de estagnação ou crescimento baixo (dados históricos/estimativas) , e projeções que indicam um crescimento moderado para os anos futuros, alinhado com o desempenho de outras economias emergentes. As diferenças de previsão/projeção entre WEOApr2024 e WEOApr2025 para o Brasil são visíveis, com o relatório de 2025 sugerindo um crescimento ligeiramente menos otimista em alguns anos.</li>
+        </ul>
+        <img src="img/GDP.png" alt="Crescimento do PIB por País Selecionado">
+        <p><i>Gráfico 3: Crescimento do PIB (WEO Abril 2025) para Brasil, China e EUA.</i></p>
+
+        <h3>Taxa de Desemprego: EUA, Alemanha, Brasil e África do Sul</h3>
+        <ul>
+            <li>As Economias Avançadas (EUA, Alemanha) tendem a ter taxas de desemprego mais baixas e estáveis (dados históricos/estimativas) em comparação com as Economias Emergentes (Brasil, África do Sul).</li>
+            <li>O Brasil e a África do Sul mostram taxas de desemprego significativamente mais altas e mais voláteis (dados históricos/estimativas), com a África do Sul apresentando os níveis mais elevados, refletindo desafios estruturais de seus mercados de trabalho.</li>
+            <li>As previsões e projeções de abril de 2025 mostram pequenas variações em relação às de abril de 2024, mas as tendências gerais de cada país permanecem consistentes.</li>
+        </ul>
+        <img src="img/DESEMPREGO.png" alt="Taxa de Desemprego por País Selecionado">
+        <p><i>Gráfico 4: Taxa de Desemprego (WEO Abril 2025) para EUA, Alemanha, Brasil e África do Sul.</i></p>
+
+        <h2>Maiores Insights Obtidos 💡</h2>
+        <ul>
+            <li><b>Divergência de Crescimento Persistente:</b> As Economias Emergentes e em Desenvolvimento continuam a ser o motor de crescimento global, superando consistentemente as Economias Avançadas em termos de expansão do PIB, embora com maior volatilidade nos dados históricos e nas projeções.</li>
+            <li><b>Inflação em Transição:</b> Após um período de pressões inflacionárias globais observadas (dados históricos), as previsões e projeções do FMI indicam uma tendência de desinflação para ambos os grupos de países, com a publicação mais recente (WEOApr2025) sugerindo uma normalização ligeiramente mais rápida dos níveis de preços.</li>
+            <li><b>Ajustes Contínuos nas Previsões e Projeções:</b> O FMI, em suas atualizações anuais, realiza ajustes finos em suas previsões (para o ano corrente e próximo) e projeções futuras, refletindo novas informações e a evolução do cenário econômico global entre as publicações. Embora as revisões possam ser pequenas, elas indicam uma visão dinâmica da economia.</li>
+            <li><b>Desafios Estruturais em Economias Emergentes:</b> Países como Brasil e África do Sul enfrentam desafios persistentes como maior volatilidade do PIB e taxas de desemprego elevadas (visível nos dados históricos e esperada nas projeções), contrastando com a maior estabilidade e menor desemprego observados em economias avançadas como EUA e Alemanha.</li>
+        </ul>
+
+
+        <a href="../../index.html" class="back-button">&larr; Voltar para o Portfólio</a>
+    </div>
+</body>
+</html>

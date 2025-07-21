@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Júlia Maria - Portfólio de Dados & BI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de Cores (Verde Musgo / Escuro) */
+        :root {
+            --primary-color: #3b5249; /* Verde Musgo Escuro */
+            --secondary-color: #55828b; /* Verde Azulado Suave */
+            --dark-bg: #2d3a33; /* Fundo mais escuro */
+            --light-text: #e0e0e0; /* Texto claro */
+            --highlight-text: #a0a0a0; /* Texto de destaque */
+            --accent-color: #b1d4c2; /* Verde claro para detalhes/hover */
+            --card-bg: #4b645a; /* Fundo dos cartões */
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0; /* Remove margem padrão do body */
+            padding: 0; /* Remove padding padrão do body */
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden; /* Evita barra de rolagem horizontal */
+        }
+        .main-wrapper {
+            display: flex;
+            min-height: 100vh; /* Ocupa a altura total da tela */
+            /* Se o conteúdo principal for menor que a tela, a sidebar ainda preencherá 100vh */
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #d1e4dc; /* Um pouco mais claro no hover */
+            text-decoration: underline;
+        }
+
+        /* Sidebar - Foto e Informações Pessoais */
+        .sidebar {
+            width: 280px; /* Largura levemente reduzida da sidebar */
+            background-color: var(--primary-color);
+            padding: 25px 15px; /* Padding reduzido */
+            color: #fff;
+            text-align: center;
+            flex-shrink: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            
+            /* -------- ALTERAÇÕES AQUI para preencher 100% da altura -------- */
+            height: 100vh; /* Faz a sidebar ocupar 100% da altura da viewport */
+            overflow-y: auto; /* Adiciona scroll interno se o conteúdo exceder 100vh */
+            position: -webkit-sticky; /* Para compatibilidade com Safari */
+            position: sticky;
+            top: 0; /* Faz a sidebar ficar "colada" no topo ao rolar, se o conteúdo for maior */
+            /* Se o conteúdo principal for menor que a tela, ela ainda preenche 100vh */
+            /* ------------------------------------------------------------- */
+
+            box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+        }
+        .sidebar img {
+            width: 130px; /* Tamanho da foto reduzido */
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px; /* Margem reduzida */
+            border: 4px solid var(--accent-color); /* Borda levemente reduzida */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra reduzida */
+        }
+        .sidebar h1 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 10px 0 5px; /* Margens reduzidas */
+            font-size: 1.6em; /* Tamanho da fonte reduzido */
+            color: #fff;
+        }
+        .sidebar p {
+            font-size: 0.95em; /* Tamanho da fonte reduzido */
+            color: var(--highlight-text);
+            margin-bottom: 15px; /* Margem reduzida */
+        }
+        .sidebar .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Espaço entre links reduzido */
+            margin-top: 20px; /* Margem superior reduzida */
+        }
+        .sidebar .contact-info a {
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.9em; /* Tamanho da fonte reduzido */
+            padding: 6px 10px; /* Padding reduzido */
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .sidebar .contact-info a:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Conteúdo Principal */
+        .content {
+            flex-grow: 1;
+            padding: 30px 40px; /* Padding interno do conteúdo reduzido */
+        }
+        section {
+            padding: 40px 0; /* Padding da seção reduzido */
+            border-bottom: 1px solid var(--card-bg);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            text-align: left;
+            font-size: 2em; /* Tamanho da fonte do título reduzido */
+            margin-bottom: 30px; /* Margem reduzida */
+            position: relative;
+            padding-bottom: 8px; /* Padding reduzido */
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70px; /* Largura do underline reduzida */
+            height: 2px; /* Espessura do underline reduzida */
+            background-color: var(--secondary-color);
+        }
+
+        /* Sobre Mim */
+        #sobre p {
+            font-size: 1em; /* Tamanho da fonte reduzido */
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        /* Experiência e Projetos */
+        .experience-item, .project-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px; /* Padding reduzido */
+            margin-bottom: 25px; /* Margem reduzida */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+        }
+        .experience-item h3, .project-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.4em; /* Tamanho da fonte reduzido */
+            margin-bottom: 8px;
+        }
+        .experience-item p, .project-item p {
+            color: var(--highlight-text);
+            margin-bottom: 6px; /* Margem reduzida */
+            font-size: 0.95em; /* Tamanho da fonte reduzido */
+        }
+        .experience-item ul {
+            font-size: 0.9em; /* Tamanho da fonte das listas reduzido */
+            list-style: disc;
+            margin-left: 18px;
+            padding-left: 0;
+            color: var(--light-text);
+        }
+        .experience-item ul li {
+            margin-bottom: 4px;
+        }
+
+        .project-item .technologies {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-size: 0.9em; /* Tamanho da fonte reduzido */
+        }
+        .tags {
+            margin-top: 10px; /* Margem reduzida */
+            margin-bottom: 10px; /* Margem reduzida */
+        }
+        .tag {
+            padding: 5px 10px; /* Padding reduzido */
+            font-size: 0.8em; /* Tamanho da fonte reduzido */
+            margin-right: 6px; /* Margem reduzida */
+            margin-bottom: 6px; /* Margem reduzida */
+        }
+        .project-item .project-links a {
+            margin-right: 10px; /* Margem reduzida */
+            font-size: 0.95em; /* Tamanho da fonte reduzido */
+        }
+
+        /* Habilidades Técnicas */
+        #habilidades ul {
+            gap: 10px; /* Espaço entre itens reduzido */
+        }
+        #habilidades ul li {
+            padding: 10px 15px; /* Padding reduzido */
+            font-size: 1em; /* Tamanho da fonte reduzido */
+        }
+
+        /* Certificações Estratégicas */
+        #formacao-e-certificacoes ul {
+            gap: 15px; /* Espaço entre itens reduzido */
+        }
+        #formacao-e-certificacoes ul li {
+            padding: 15px; /* Padding reduzido */
+            font-size: 0.95em; /* Tamanho da fonte reduzido */
+        }
+        #formacao-e-certificacoes ul li strong {
+            margin-bottom: 3px; /* Margem reduzida */
+        }
+
+        /* Container da grade de projetos */
+        .projects-grid {
+            display: grid;
+            /* Duas colunas em telas maiores, mínimo de 380px para cada card */
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+            gap: 30px; /* Espaçamento entre os cards */
+            margin-top: 20px;
+            justify-content: center; /* Centraliza o grid se houver apenas um card na última linha */
+        }
+
+        /* Estilo do card clicável */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none; /* Remove sublinhado do link */
+            color: var(--light-text); /* Cor do texto no card */
+            display: flex; /* Para flexibilizar o conteúdo interno */
+            flex-direction: column;
+            justify-content: space-between; /* Espaça o conteúdo */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: auto; /* Garante que a altura se ajuste ao conteúdo */
+            min-height: 200px; /* Altura mínima para os cards não ficarem muito pequenos */
+        }
+        .project-card:hover {
+            transform: translateY(-8px); /* Efeito de elevação ao passar o mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: var(--accent-color); /* Mudar cor no hover para dar destaque */
+        }
+        .project-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color); /* Título do card */
+            margin-top: 0;
+            font-size: 1.5em; /* Tamanho do título do card */
+            margin-bottom: 15px;
+        }
+        .project-card .tags {
+            margin-top: 15px;
+            margin-bottom: 15px; /* Espaço para as tags */
+        }
+        .project-card .tag {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block; /* Garante que as tags fiquem lado a lado */
+        }
+        .project-card p {
+            font-size: 0.95em; /* Descrição do card */
+            color: var(--highlight-text);
+            margin-top: 10px;
+        }
+
+       
+        /* Ajustes para responsividade do grid de projetos */
+        @media (max-width: 992px) { /* Em telas menores que 992px (tablets e smartphones grandes) */
+            .projects-grid {
+                /* Para telas menores, pode ser uma coluna ou duas menores, dependendo do design.
+                Vamos tentar uma coluna para garantir que o card preencha bem. */
+                grid-template-columns: 1fr; 
+            }
+        }
+        @media (max-width: 768px) { /* Ajuste adicional para mobile, se necessário */
+            .project-card {
+                padding: 20px;
+            }
+            .project-card h3 {
+                font-size: 1.3em;
+            }
+            .project-card p {
+                font-size: 0.9em;
+            }
+            .project-card .tag {
+                font-size: 0.75em;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 0; /* Padding reduzido */
+            font-size: 0.85em; /* Tamanho da fonte reduzido */
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .main-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative; /* Não fica sticky em telas menores */
+                height: auto; /* Altura automática em telas menores */
+                box-shadow: none;
+                padding: 25px 20px;
+                max-height: unset; /* Remove max-height em mobile */
+                overflow-y: unset; /* Remove scroll interno em mobile */
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            h2 {
+                text-align: center;
+            }
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            #sobre p {
+                text-align: center;
+            }
+            #habilidades ul {
+                justify-content: center;
+            }
+        }
+        @media (max-width: 576px) {
+            .sidebar img {
+                width: 100px;
+                height: 100px;
+            }
+            .sidebar h1 {
+                font-size: 1.4em;
+            }
+            .sidebar p {
+                font-size: 0.85em;
+            }
+            .sidebar .contact-info a {
+                font-size: 0.8em;
+                padding: 5px 8px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .experience-item h3, .project-item h3 {
+                font-size: 1.2em;
+            }
+            .project-item .project-links a {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 8px;
+            }
+            #formacao-e-certificacoes ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <img src="Foto-perfil.jpg" alt="Sua Foto de Perfil">
+            <h1>Júlia Maria Campelo Bezerra</h1>
+            <p>Analista de Dados | Cientista de Dados | Especialista em BI</p>
+            
+            <div class="contact-info">
+                <a href="mailto:jujumcb8@gmail.com">jujumcb8@gmail.com</a>
+                <a href="tel:+5581996023224">(81) 99602-3224</a>
+                <a href="https://www.linkedin.com/in/j%C3%BAlia-maria-campelo/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/juliamcbezerra" target="_blank">GitHub</a>
+                <a href="JuliaMaria_Curriculo.pdf" target="_blank">Currículo - PT (PDF)</a>
+                <a href="JuliaMaria_Resume.pdf" target="_blank">Resume - EN (PDF)</a>
+
+            </div>
+        </aside>
+
+        <main class="content">
+            <section id="sobre">
+                <h2>Sobre Mim</h2>
+                <p>
+                    Profissional analítica com experiência em inovação, dados e transformação digital. Possuo experiência em liderança de iniciativas de melhoria de processos com foco em soluções orientadas a resultados. Estou em busca de uma oportunidade desafiadora onde possa aplicar minhas habilidades para gerar valor e impulsionar o crescimento.
+                    Tenho familiaridade com machine learning, análise exploratória, visualização de dados, linguagens como Python e SQL e tomada de decisão baseada em dados. Meu objetivo é transformar dados complexos em insights acionáveis que impulsionam decisões estratégicas.
+                </p>
+            </section>
+
+            <section id="experiencia">
+                <h2>Experiência Profissional</h2>
+                <div class="experience-item">
+                    <h3>Head de Inovação | CITi UFPE</h3>
+                    <p>Janeiro/2025 – Junho/2025</p>
+                    <ul>
+                        <li>Definição de roadmaps de inovação e coordenação de times multidisciplinares.</li>
+                        <li>Apoio à cultura data-driven e apresentação de análises e soluções para diferentes áreas da empresa, alinhadas aos objetivos do negócio.</li>
+                        <li>Liderança de iniciativas estratégicas para inovação e crescimento organizacional.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Analytics Engineer | CITi UFPE</h3>
+                    <p>Julho/2024 – Janeiro/2025</p>
+                    <ul>
+                        <li>Desenvolvimento de dashboards estratégicos com Power BI.</li>
+                        <li>Manipulação e preparação de dados com Python (pandas, NumPy, Matplotlib, Plotly) e SQL.</li>
+                        <li>Análises estatísticas e modelagens básicas, como regressão linear/logística e clusterização.</li>
+                        <li>Automação de relatórios e definição de KPIs com áreas de negócio.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Extensionista Voluntária | Projeto EnvelheSer Digital (CIn UFPE)</h3>
+                    <p>Maio/2025 – Atual</p>
+                    <ul>
+                        <li>Apoio na formação e inclusão digital de idosos, utilizando habilidades de comunicação e didática, reforçando a capacidade de traduzir conceitos complexos para diferentes públicos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="habilidades">
+                <h2>Habilidades Técnicas</h2>
+                <ul>
+                    <li>Python (Pandas, NumPy, scikit-learn, Matplotlib, Seaborn)</li>
+                    <li>SQL e Modelagem de Dados</li>
+                    <li>Análise e Visualização de Dados (Power BI, Looker Studio, Tableau)</li>
+                    <li>Machine Learning (Regressão, Clusterização)</li>
+                    <li>Comunicação de Insights e Apresentações Analíticas</li>
+                    <li>Metodologias Ágeis (Scrum, Kanban), Gestão de Projetos</li>
+                </ul>
+            </section>
+
+            <section id="projetos">
+                <h2>Meus Projetos</h2>
+                <div class="projects-grid">
+                    <a href="projetos/FMI/index.html" class="project-card">
+                        <h3>Panorama Econômico - Fundo Monetário Internacional</h3>
+                        <div class="tags">
+                            <span class="tag">Análise de Dados</span>
+                            <span class="tag">Business Intelligence</span>
+                            <span class="tag">Séries Temporais</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <p>Exploração de tendências de PIB, Inflação e Desemprego no Brasil e Globalmente, com insights para decisões estratégicas.</p>
+                    </a>
+
+                    <a href="projetos/TECHNO/index.html" class="project-card">
+                        <h3>Análise de Turnover de empresa de tecnologia</h3>
+                        <div class="tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Recursos Humanos</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">Avaliação de Modelo</span>
+                        </div>
+                        <p>Análise preditiva para identificar fatores-chave que influenciam a rotatividade de funcionários e auxiliar em estratégias de retenção.</p>
+                    </a>
+
+                    <a href="projetos/superstore/index.html" class="project-card">
+                        <h3>Análise Exploratória de Dados (EDA): Base de Clientes Superstore</h3>
+                            <div class="tags">
+                                <span class="tag">Análise Exploratória de Dados</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Marketing</span>
+                                <span class="tag">Visualização de Dados</span>
+                                <span class="tag">Comportamento do Consumidor</span>
+                            </div>
+                            <p>Exploração aprofundada de um dataset de clientes para identificar padrões de consumo, tendências e insights para marketing e vendas.</p>
+                            <p>EM FINALIZAÇÃO ⚠️🚧🚧</p>
+                    </a>
+                    
+                    </div>
+            </section>
+
+            <section id="formacao-e-certificacoes">
+                <h2>Formação e Certificações Relevantes</h2>
+                <ul>
+                    <li><strong>Bacharelado em Sistemas de Informação</strong> | Universidade Federal de Pernambuco (2024-2028)</li>
+                    <li><strong>Bacharelado em Direito</strong> | Universidade Federal de Pernambuco (08/2021 - 02/2023)</li>
+                    <li><strong>Data Science for Business</strong> - DataCamp</li>
+                    <li><strong>Python para Data Science</strong> -Formação Alura</li>
+                    <li><strong>Formação em Inteligência Artificial para Automação Industrial - Fundamentos e Aplicações</strong> - Curso de Extensão (CIn UFPE)</li>
+                    <li><strong>Coordenação de Conteúdo - Hackapride</strong> (Experiência em gestão de projetos e eventos de tecnologia)</li>
+                    <li><strong>Hackathon "Hackahealth"</strong> - Porto Digital </li>
+                </ul>
+            </section>
+
+            <footer>
+                <p>&copy; 2025 Júlia Maria Campelo Bezerra. Todos os direitos reservados.</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

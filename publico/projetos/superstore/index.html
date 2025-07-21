@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDA Superstore - Detalhes do Projeto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"> 
+     <style>
+        /* COPIAR E COLAR TODO O SEU BLOCO <STYLE> DO INDEX.HTML AQUI */
+        /* Certifique-se de que os caminhos das variáveis de cor estão corretos se você usou :root */
+        :root {
+            --primary-color: #3b5249; /* Verde Musgo Escuro */
+            --secondary-color: #55828b; /* Verde Azulado Suave */
+            --dark-bg: #2d3a33; /* Fundo mais escuro */
+            --light-text: #e0e0e0; /* Texto claro */
+            --highlight-text: #a0a0a0; /* Texto de destaque */
+            --accent-color: #b1d4c2; /* Verde claro para detalhes/hover */
+            --card-bg: #4b645a; /* Fundo dos cartões */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+        .project-detail-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .project-detail-container h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        .project-detail-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--highlight-text);
+            padding-bottom: 5px;
+        }
+        .project-detail-container p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+        .project-detail-container ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .project-detail-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .project-detail-container .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .project-detail-container .links {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .project-detail-container .links a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: background-color 0.3s ease;
+        }
+        .project-detail-container .links a:hover {
+            background-color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        .project-detail-container .tags {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tag { /* Reaplicar o estilo da tag do index.html */
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        /* Responsividade para a página de detalhes do projeto */
+        @media (max-width: 768px) {
+            .project-detail-container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .project-detail-container h1 {
+                font-size: 2em;
+            }
+            .project-detail-container h2 {
+                font-size: 1.5em;
+            }
+            .project-detail-container p {
+                font-size: 1em;
+            }
+            .project-detail-container .links a {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <div class="project-detail-container">
+        <h1>Análise Exploratória de Dados (EDA): Base de Clientes Superstore</h1>
+        
+        <div class="tags">
+            <span class="tag">Análise Exploratória de Dados</span>
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+            <span class="tag">Engenharia de Features</span>
+            <span class="tag">Comportamento do Consumidor</span>
+        </div>
+
+        <h2>1. Introdução</h2>
+        <p>
+            Este relatório apresenta uma Análise Exploratória de Dados (EDA) de um conjunto de dados de clientes de uma Superstore. O objetivo principal desta EDA é obter uma compreensão profunda da base de clientes, identificar padrões de comportamento, descobrir tendências e gerar insights que possam informar futuras estratégias de marketing e vendas. A análise focou em características demográficas, hábitos de consumo e o engajamento dos clientes com campanhas de marketing.
+        </p>
+
+        <h2>2. Metodologia</h2>
+        <p>
+            A análise foi realizada utilizando a linguagem de programação Python e as bibliotecas Pandas para manipulação de dados, Matplotlib e Seaborn para visualização. As principais etapas da EDA incluíram:
+        </p>
+        <ul>
+            <li>Carregamento e Inspeção Inicial dos Dados: Verificação das primeiras linhas, tipos de dados e informações gerais do DataFrame.</li>
+            <li>Tratamento de Dados Ausentes: Identificação e imputação de valores ausentes (especificamente na coluna 'Income' utilizando a mediana para robustez).</li>
+            <li>Engenharia de Features: Criação de novas variáveis como 'Age' (idade do cliente) e 'TotalMnt' (gasto total em produtos).</li>
+            <li>Análise de Distribuição: Utilização de gráficos de contagem (countplot) para variáveis categóricas e histogramas (histplot) e boxplots para variáveis numéricas.</li>
+            <li>Análise de Correlação: Geração de um mapa de calor (heatmap) para identificar correlações entre variáveis numéricas-chave.</li>
+            <li>Análise Bivariada: Exploração da relação entre a variável alvo ('Response' - aceitação da oferta na última campanha) e outras variáveis relevantes, através de boxplots e gráficos de contagem agrupados.</li>
+        </ul>
+
+        <h2>3. Principais Descobertas e Insights</h2>
+
+        <h3>3.1. Perfil Demográfico dos Clientes</h3>
+        <ul>
+            <li>Idade: A base de clientes possui uma distribuição de idade variada, com a maioria concentrada em faixas etárias intermediárias (entre 40 e 60 anos).</li>
+            <li>Renda (Income): A distribuição de renda mostra uma concentração de clientes em faixas de renda média. Foram identificados poucos outliers com rendas muito altas, que foram retidos para a análise para não perder informações potenciais.</li>
+            <li>Educação: A maioria dos clientes possui nível de educação de "Graduation", seguido por "PhD" e "Master".</li>
+            <li>Estado Civil: "Married" e "Together" são os estados civis mais comuns na base.</li>
+        </ul>
+        <h3>3.2. Hábitos de Consumo</h3>
+        <ul>
+            <li>Gasto Total (TotalMnt): O gasto total dos clientes em produtos varia significativamente. Há uma concentração de clientes com gastos mais baixos, mas também uma cauda longa de clientes que gastam quantias consideráveis.</li>
+            <li>Preferência de Produtos: Clientes tendem a gastar mais em 'MntWines' e 'MntMeatProducts' em comparação com outras categorias como 'MntFruits', 'MntFishProducts' e 'MntSweetProducts'. Isso sugere oportunidades para campanhas focadas nessas categorias de maior gasto ou para incentivar o consumo nas categorias de menor gasto.</li>
+            <li>Canais de Compra: As compras realizadas em lojas físicas (NumStorePurchases) e através do website (NumWebPurchases) são os canais mais utilizados.</li>
+        </ul>
+        <img src="img/gastos_por_categoria.png" alt="Gastos por Categoria de Produto">
+        <p><i>Gráfico 2: Distribuição dos gastos dos clientes por categoria de produto.</i></p>
+
+        <h3>3.3. Engajamento com Campanhas</h3>
+        <ul>
+            <li>Variável Resposta (Response): A variável 'Response' (aceitação da oferta na última campanha) apresenta um desequilíbrio significativo, com a vasta maioria dos clientes não aceitando a oferta. Isso indica que a otimização de campanhas é crucial e que o conjunto de dados é desbalanceado, um fator importante para futura modelagem.</li>
+            <li>Renda e Gasto vs. Resposta: Clientes que aceitaram a oferta (Response = 1) tendem a ter uma renda média mais alta e um gasto total em produtos significativamente maior em comparação com aqueles que não aceitaram (Response = 0). Este é um insight poderoso para segmentação de clientes.</li>
+            <li>Presença de Crianças/Adolescentes vs. Resposta: A análise sugere que clientes com um maior número de crianças ou adolescentes em casa podem ter uma menor propensão a aceitar ofertas de campanha, possivelmente devido a diferentes prioridades de gasto ou tempo.</li>
+        </ul>
+        <img src="img/resposta_por_renda_gasto.png" alt="Renda e Gasto Total vs. Aceitação de Campanha">
+        <p><i>Gráfico 3: Comparação da Renda e Gasto Total entre clientes que aceitaram e não aceitaram a oferta de campanha.</i></p>
+        <img src="img/resposta_por_filhos.png" alt="Aceitação de Campanha por Presença de Crianças/Adolescentes">
+        <p><i>Gráfico 4: Proporção de aceitação de campanha em função da presença de crianças e adolescentes no domicílio.</i></p>
+
+        <h3>3.4. Outros Insights Relevantes</h3>
+        <ul>
+            <li>Recência (Recency): A distribuição de recência (dias desde a última compra) é relativamente uniforme, sugerindo uma base de clientes com variados níveis de atividade recente.</li>
+            <li>Reclamações (Complain): A grande maioria dos clientes não registrou reclamações nos últimos 2 anos, indicando um bom nível geral de satisfação.</li>
+        </ul>
+        <img src="img/matriz_correlação.png" alt="Mapa de Calor de Correlação de Variáveis Numéricas">
+        <p><i>Gráfico 5: Mapa de calor de correlação entre as principais variáveis numéricas do dataset.</i></p>
+
+        <h2>4. Conclusão</h2>
+        <p>
+            Esta Análise Exploratória de Dados revelou características importantes da base de clientes da Superstore. Os insights sobre o perfil demográfico, hábitos de consumo (especialmente as preferências de produtos e canais de compra), e a relação entre renda/gasto com a aceitação de ofertas são fundamentais. A identificação do desbalanceamento na variável 'Response' é um alerta importante para o desenvolvimento de modelos preditivos mais robustos no futuro.
+        </p>
+
+        <h2>5. Próximos Passos</h2>
+        <p>
+            Com base nesta EDA, as seguintes etapas são recomendadas para aprofundar a análise e auxiliar na tomada de decisões estratégicas:
+        </p>
+        <ul>
+            <li>Segmentação de Clientes: Utilizar técnicas de clusterização (e.g., K-Means) para agrupar clientes com base em seus hábitos de consumo e características demográficas, permitindo campanhas de marketing mais direcionadas.</li>
+            <li>Modelagem Preditiva: Desenvolver modelos de Machine Learning (e.g., Regressão Logística, Random Forest) para prever a probabilidade de um cliente aceitar uma oferta, utilizando as features mais relevantes identificadas nesta EDA. Atenção especial será dada ao desbalanceamento da classe 'Response'.</li>
+            <li>Análise de Ciclo de Vida do Cliente: Investigar como 'Dt_Customer' (data de inscrição) e 'Recency' (recência da última compra) se relacionam com o gasto e o engajamento do cliente ao longo do tempo.</li>
+            <li>Otimização de Campanhas: Com base nos resultados da modelagem, identificar as características dos clientes mais propensos a responder a campanhas e otimizar as estratégias de marketing para públicos específicos.</li>
+        </ul>
+
+        <a href="../../index.html" class="back-button">&larr; Voltar para o Portfólio</a>
+    </div>
+</body>
+</html>
